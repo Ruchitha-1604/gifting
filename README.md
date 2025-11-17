@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gift a Report – Standalone Page
+
+This package isolates the Gift-a-Report checkout experience from the main Valuegraphics site while keeping the original layout, styling, and dependencies intact.
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- React 18 + TypeScript
+- Tailwind CSS 3
+- Shadcn UI primitives (Button, Form, Input, Checkbox)
+- Stripe Checkout + Axios API helpers
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cd gift-a-report-app
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app boots at `http://localhost:3000` and renders the Buyer → Recipient flow on the root route.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` by copying `.env.example`. You must provide valid values for:
 
-## Learn More
+- `NEXT_PUBLIC_HOST_API_CLIENT_URL`
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+- `NEXT_PUBLIC_VALUES_IDENTIFIER_APP`
+- `NEXT_PUBLIC_CLIENT_BASE_URL`
+- `NEXT_PUBLIC_COACH_PORTAL_URL`
+- `NEXT_PUBLIC_PARTNERO_PROGRAM_ID`
+- `NEXT_PUBLIC_AI_API_KEY`
 
-To learn more about Next.js, take a look at the following resources:
+The API helpers and checkout handler depend on these keys to talk to the production services the original app used.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` – Next.js App Router entry points (`layout.tsx`, `page.tsx`, `globals.css`)
+- `components/gar` – Buyer & Recipient flows copied from the main repo
+- `components/ui` – Shadcn primitives used across the flow
+- `lib/` – Axios, Stripe, and toast utilities
+- `utils/` – Shared constants and helpers
+- `public/` – Original image assets, including `images/squares.png`
 
-## Deploy on Vercel
+## Linting & Build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Both commands use the same package versions as the source project to minimize drift.

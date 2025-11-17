@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #fff;
+    --foreground: #3d4245;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --gold: #e2b580;
+    --smoke-white: #f6f8fc;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --popover-text: #282c2e;
+
+    --primary: #103565;
+    --primary-foreground: #fff;
+    --primary-text: #3d4245;
+
+    --secondary: #1369aa;
+    --secondary-foreground: #666;
+    --secondary-text: #696f72;
+    --muted: #0e284a;
+    --muted-foreground: #9ea7ab;
+    --muted-text: #999d9f;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: #ef4444;
+    --destructive-foreground: 210 40% 98%;
+    --input: #10356533;
+    --ring: 222.2 84% 4.9%;
+    --link: #4179c2;
+    --radius: 0.5rem;
+    --border: #4d7aa4;
+    --border-foreground: #dde8ed;
+    --label: #53585b;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .flex-col-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .squares {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 1)
+      ),
+      url("/images/squares.png");
+    background-color: linear-gradient(
+      180deg,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 70.12%
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 364px;
+    top: 72px;
+    z-index: -1;
+  }
+
+  @media screen and (min-width: 1340px) {
+    .squares {
+      height: 728px;
+      top: 96px;
+      background-size: contain;
+    }
+  }
+
+  @media screen and (min-width: 1920px) {
+    .squares {
+      background-size: cover;
+    }
+  }
+
+  .take-the-assessment-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s;
+    box-shadow: 0px 16px 57.6px 0px #00000014;
+    background-color: white;
+    border: 1.5px solid #10356559;
+  }
+
+  .take-the-assessment-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary);
+    z-index: -1;
+    border-radius: 10rem;
+    transition: 0.3s ease all;
+    transform: scale(0, 1);
+    transform-origin: top left;
+    transition: transform 50ms cubic-bezier(0.86, 0.07, 1);
+    transition-timing-function: cubic-bezier(0.86, 0.07, 1);
+  }
+
+  .take-the-assessment-btn:hover::after {
+    transform: scale(1, 1);
+    transform-origin: top-left;
+  }
+
+  /* REACT_PLAYER_PACKAGE INBUILT CLASS STYLES OVERRIDE */
+  .react-player-wrapper > div {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .react-player-wrapper-resources > div {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .react-player-wrapper video {
+    object-fit: cover;
+  }
+
+  .react-player-wrapper .react-player__shadow {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background-color: rgb(0, 0, 0, 0.3) !important;
+  }
+
+  @media screen and (max-width: 624px) {
+    .react-player-wrapper .react-player__shadow {
+      width: 32px !important;
+      height: 32px !important;
+    }
+
+    .react-player__play-icon {
+      border-width: 8px 0 8px 12px !important;
+      background: transparent;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0;
+}
+
+.yt-lite {
+  border-radius: 16px;
+}
