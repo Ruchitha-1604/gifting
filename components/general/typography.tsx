@@ -31,7 +31,7 @@ const Paragraph: React.FC<TypographyParagraph> = ({ className, children }) => {
   return (
     <p
       className={cn(
-        "font-normal font-helvetica text-[16px] leading-[24px] xl:text-[20px] xl:leading-[1.5] text-primary-text",
+        "font-normal font-helvetica text-base xl:text-lg text-primary-text",
         className,
       )}
     >

@@ -175,7 +175,13 @@ function RecipientDetails({ setStep, buyer, recipients, setRecipients, isAnonymo
                 flex flex-col gap-10 md:gap-16'>
                     <div className='flex flex-col gap-4'>
                         <Typography.Heading className='text-primary'>Gift a Report</Typography.Heading>
-                        <Typography.Paragraph>Gift an ultra-personalized Values Identifier report. You can choose to include your name with the gift or opt to send it anonymously.</Typography.Paragraph>
+                        <Typography.Paragraph>Give someone, or yourself, the gift of insight with a Personalized Values Identifier report.</Typography.Paragraph>
+                        <Typography.Paragraph>
+                            Use the code <span className="font-bold text-[#4179C2]">GIFTVALUES</span> for $10 off each report (valid until 31 December).
+                        </Typography.Paragraph>
+                        <Typography.Paragraph>Simply enter your details, add the recipient&apos;s name and email, and choose whether you&apos;d like to send the gift anonymously.</Typography.Paragraph>
+                        <Typography.Paragraph>Once completed, the recipient(s) will instantly receive an email with a unique link to take the assessment and access their report.</Typography.Paragraph>
+                        <Typography.Paragraph>If you&apos;re purchasing it for yourself, you&apos;ll also receive the link right away.</Typography.Paragraph>
                     </div>
                     <div className='grid grid-cols-1 xl:flex xl:flex-row xl:flex-wrap gap-10'>
                         {recipients.map((recipient, index) => {

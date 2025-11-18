@@ -16,7 +16,7 @@ export default function GiftAReportPage() {
     const [step, setStep] = useState(1);
 
     return (
-        <>
+        <main>
             <PaymentSuccess />
             {step === 1 ? (
                 <BuyerDetails setBuyer={setBuyer} buyer={buyer} setStep={setStep} />
@@ -33,7 +33,7 @@ export default function GiftAReportPage() {
                     />
                 )
             )}
-        </>
+        </main>
     );
 }
 
