@@ -17,7 +17,6 @@ import RecipientDetailsFooter from './recipient-details-footer';
 import { Api, Toast } from '@/lib';
 import { cn } from '@/lib/utils';
 import { Checkbox } from '../ui/checkbox';
-import { getRecipientByEmail, getUserByEmail } from '@/lib/api/user';
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -54,7 +53,6 @@ function RecipientDetails({ setStep, buyer, recipients, setRecipients, isAnonymo
     });
 
     const onSubmit = async (data: Recipient) => {
-        console.log("activeIndex", activeIndex)
         const normalizedEmail = data.email.toLowerCase();
 
         const isDuplicate = recipients.some((recipient, index) =>
@@ -69,10 +67,8 @@ function RecipientDetails({ setStep, buyer, recipients, setRecipients, isAnonymo
             });
             return;
         }
-        const user = await getUserByEmail(data.email);
-        console.log("userrr", user)
-        const recipient = await getRecipientByEmail(data.email);
-        console.log("recipienttttt", recipient)
+        const user = await Api.Gifting.getUserByEmail(data.email);
+        const recipient = await Api.Gifting.getRecipientByEmail(data.email);
         if ((user && user.isPaid) || recipient) {
             form.setError("email", {
                 type: "manual",
@@ -143,7 +139,6 @@ function RecipientDetails({ setStep, buyer, recipients, setRecipients, isAnonymo
             }
         } catch (err) {
             Toast.error('Something went wrong while preparing for stripe checkout.')
-            console.log(err);
         } finally {
             setIsLoading(false);
         }

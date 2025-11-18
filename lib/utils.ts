@@ -77,9 +77,7 @@ export const getPartneroAffiliateId = () => {
 
 export const getValuesIdentifierAppLink = (baseUrl?: string): string => {
   const affiliateId = getPartneroAffiliateId();
-  const base = baseUrl
-    ? baseUrl
-    : process.env.NEXT_PUBLIC_VALUES_IDENTIFIER_APP!;
+  const base = baseUrl ? baseUrl : process.env.NEXT_PUBLIC_USER_PORTAL_URL!;
   return affiliateId ? `${base}?aff=${affiliateId}` : base;
 };
 

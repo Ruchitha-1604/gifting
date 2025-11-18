@@ -10,12 +10,4 @@ const bearerToken = (config: InternalAxiosRequestConfig) => {
   return config;
 };
 
-const apiKey = (config: InternalAxiosRequestConfig) => {
-  const api_key = process.env.NEXT_PUBLIC_AI_API_KEY;
-  if (config.headers && api_key) {
-    config.headers["api-key"] = api_key;
-  }
-  return config;
-};
-
-export { bearerToken, apiKey };
+export { bearerToken };

@@ -27,7 +27,7 @@ function PaymentSuccess() {
         if (session_id && !hasShownSuccess) {
             const fetchGiftOrder = async () => {
                 try {
-                    const data = await Api.User.getGiftOrderByPaymentId(session_id);
+                    const data = await Api.Gifting.getGiftOrderByPaymentId(session_id);
                     if (data && data.paymentStatus === "paid") {
                         setShowPaymentSuccess(true);
                         sessionStorage.setItem("hasShownPaymentSuccess", "true");

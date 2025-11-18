@@ -26,12 +26,14 @@ export const MENUITEMS_LIST = [
       {
         id: 1,
         label: "For You",
-        slug: "/for-you",
+        slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/for-you`,
+        target: "_blank",
       },
       {
         id: 2,
         label: "Coaching",
-        slug: "/coaching/individual",
+        slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/coaching/individual`,
+        target: "_blank",
       },
     ],
   },
@@ -43,7 +45,8 @@ export const MENUITEMS_LIST = [
       {
         id: 1,
         label: "For Coaches",
-        slug: "/for-coaches",
+        slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/for-coaches`,
+        target: "_blank",
       },
       {
         id: 1,
@@ -68,45 +71,52 @@ export const MENUITEMS_LIST = [
   {
     id: 3,
     label: "Blog",
-    slug: "https://blog.valuesidentifier.com/",
-    // target: "_blank",
+    slug: `https://blog.valuesidentifier.com/`,
+    target: "_blank",
   },
   {
     id: 4,
     label: "About Us",
-    slug: "/about-us",
+    slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/about-us`,
+    target: "_blank",
     subTabs: [
       {
         id: 1,
         label: "About Values Identifier",
-        slug: "/about-us/about-values-identifier",
+        slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/about-us/about-values-identifier`,
+        target: "_blank",
       },
       {
         id: 2,
         label: "The Valuegraphics Project",
-        slug: "/about-us/the-valuegraphics-project",
+        slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/about-us/the-valuegraphics-project`,
+        target: "_blank",
       },
     ],
   },
   {
     id: 5,
     label: "Resources",
-    slug: "/resources",
+    slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/resources`,
+    target: "_blank",
     subTabs: [
       {
         id: 1,
         label: "The Science Behind Values Identifier",
-        slug: "/resources/the-science-behind-values-identifier",
+        slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/resources/the-science-behind-values-identifier`,
+        target: "_blank",
       },
       {
         id: 2,
         label: "The Valuegraphics Database",
-        slug: "/resources/the-valuegraphics-database",
+        slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/resources/the-valuegraphics-database`,
+        target: "_blank",
       },
       {
         id: 3,
         label: "56 Global Values",
-        slug: "/resources/56-global-values",
+        slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/resources/56-global-values`,
+        target: "_blank",
       },
       {
         id: 4,
@@ -125,18 +135,9 @@ export const MENUITEMS_LIST = [
   {
     id: 6,
     label: "Support Center",
-    slug: "/support-center",
+    slug: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/support-center`,
+    target: "_blank",
   },
-  {
-    id: 6,
-    label: "Gift a Report",
-    slug: "/gift-a-report",
-  },
-  // {
-  //   id: 7,
-  //   label: "For Students",
-  //   slug: "/for-students",
-  // },
 ];
 
 export const BASE_CALENDLY_LINK =

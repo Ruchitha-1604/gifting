@@ -4,6 +4,7 @@ import "./globals.css";
 import { APP_DESCRIPTION, APP_NAME } from "@/utils/constant";
 import { Toaster } from "react-hot-toast";
 import type { ReactNode } from "react";
+import Header from "@/components/shared/header";
 
 const kanit = Kanit({
     subsets: ["latin"],
@@ -29,9 +30,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${kanit.variable} ${roboto.variable} bg-background`}>
+            <body className={`${kanit.variable} ${roboto.variable} min-h-dvh h-full flex flex-col bg-background`}>
                 <Toaster />
-                {children}
+                <Header />
+                <div className="flex-1">{children}</div>
             </body>
         </html>
     );
